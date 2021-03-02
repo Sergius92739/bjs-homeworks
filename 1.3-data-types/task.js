@@ -1,14 +1,16 @@
 "use strict";
 function calculateTotalMortgage(percent, contribution, amount, date) {
-
-    if (isNaN(percent) === true) {
-        alert(`Параметр \"Процентная ставка\" содержит неправильное значение \"${percent}\"`)
-    } else if (isNaN(contribution) === true) {
-        alert(`Параметр \"Начальный взнос\" содержит неправильное значение \"${contribution}\"`)
-    } else if (isNaN(amount) === true) {
-        alert(`Параметр \"Общая стоимость\" содержит неправильное значение \"${amount}\"`)
-    } else if (isNaN(date) === true) {
-        alert(`Параметр \"Сроки ипотеки\" содержит неправильное значение \"${date}\"`)
+    console.log(date);
+    if ((Number(percent) !== Number(percent)) ||
+        (percent === "") || (percent.indexOf(" ") !== -1) || Number(percent) < 0) {
+        return alert(`Параметр \"Процентная ставка\" содержит неправильное значение \"${percent}\"`)
+    } else if (Number(contribution) !== Number(contribution) || Number(contribution) < 0 || contribution === "") {
+        return alert(`Параметр \"Начальный взнос\" содержит неправильное значение \"${contribution}\"`)
+    } else if ((Number(amount) !== Number(amount)) ||
+        (amount === "") || (amount.indexOf(" ") !== -1) || Number(amount) < 0) {
+        return alert(`Параметр \"Общая стоимость\" содержит неправильное значение \"${amount}\"`)
+    } else if ((date.getFullYear() !== date.getFullYear()) || date.getFullYear() < new Date().getFullYear()) {
+        return alert(`Параметр \"Сроки ипотеки\" содержит неправильное значение \"${date}\"`)
     }
 
     let bodyCredit = Number(amount) - Number(contribution);
@@ -21,14 +23,24 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
 }
 
 function getGreeting(name) {
+/*
+    return `Привет мир ! Меня зовут ${name || 'Аноним'}.`;
+*/
 
-    if (name === "" || typeof name === "undefined") {
-         name = "Аноним";
-         console.log(`Привет, мир! Меня зовут ${name}.`);
-         return `Привет, мир! Меня зовут ${name}.`;
+
+    if (name === "" || typeof name === "undefined" || name.indexOf(" ") !== -1) {
+        name = "Аноним";
+    }
+    return `Привет, мир ! Меня зовут ${name}.`;
+
+
+/*  if (name === "" || typeof name === "undefined") {
+        name = "Аноним";
+        console.log(`Привет, мир! Меня зовут ${name}.`);
+        return `Привет, мир! Меня зовут ${name}.`;
     } else {
         console.log(`Привет, мир! Меня зовут ${name}.`);
         return `Привет, мир! Меня зовут ${name}.`;
     }
-     
+*/
 }
