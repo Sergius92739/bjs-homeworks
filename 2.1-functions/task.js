@@ -99,7 +99,7 @@ function getAverageMark(marks) {
 }
 
 
-// Задача N2
+// Задача N3
 
 let secretData = {
     aaa: 1,
