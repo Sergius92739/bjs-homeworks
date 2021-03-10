@@ -34,6 +34,7 @@ function getAverageMark(marks) {
     return sum / marks.length;
 }
 
+// Задача 3
 function askDrink(name, dateOfBirthday) {
   
     let age = new Date().getFullYear() - dateOfBirthday.getFullYear();
